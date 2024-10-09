@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
-import './Card.css'; // Make sure to create this CSS file
+import './Card.css';
 
 const Card = ({ title, description, category }) => {
-  const [showOptions, setShowOptions] = useState(false);
-  const [selectedAC, setSelectedAC] = useState(null);
+  const statButtons = [
+    'AC', 'Perception', 'HP', 'Fort', 'Ref', 'Will', 
+    'Attack', 'Damage', 'Save DC', 'AoE Damage'
+  ];
 
-  const handleACClick = () => {
-    setShowOptions(!showOptions);
+  const [showOptions, setShowOptions] = useState({});
+  const [selectedValues, setSelectedValues] = useState({});
+
+  const handleButtonClick = (stat) => {
+    setShowOptions(prev => ({
+      ...prev,
+      [stat]: !prev[stat]
+    }));
   };
 
-  const handleOptionClick = (option) => {
-    setSelectedAC(option);
-    setShowOptions(false);
+  const handleOptionClick = (stat, option) => {
+    setSelectedValues(prev => ({
+      ...prev,
+      [stat]: option
+    }));
+    setShowOptions(prev => ({
+      ...prev,
+      [stat]: false
+    }));
   };
 
   return (
@@ -19,27 +33,31 @@ const Card = ({ title, description, category }) => {
       <h3>{title}</h3>
       <p>{description}</p>
       <span>{category}</span>
-      <div className="ac-container">
-      <button
-        className="ac-button"
-        onClick={handleACClick}
-        data-selected={selectedAC ? selectedAC.toLowerCase() : ''}
-      >
-        {selectedAC ? `AC: ${selectedAC}` : 'AC'}
-      </button>
-        {showOptions && (
-          <div className="ac-options">
-            {['Low', 'Moderate', 'High', 'Extreme'].map((option) => (
-              <button
-                key={option}
-                className={`ac-option ${option.toLowerCase()}`}
-                onClick={() => handleOptionClick(option)}
-              >
-                {option}
-              </button>
-            ))}
+      <div className="stat-buttons-container">
+        {statButtons.map(stat => (
+          <div key={stat} className="stat-button-container">
+            <button
+              className="stat-button"
+              onClick={() => handleButtonClick(stat)}
+              data-selected={selectedValues[stat] ? selectedValues[stat].toLowerCase() : ''}
+            >
+              {selectedValues[stat] ? `${stat}: ${selectedValues[stat]}` : stat}
+            </button>
+            {showOptions[stat] && (
+              <div className="stat-options">
+                {['Low', 'Moderate', 'High', 'Extreme'].map((option) => (
+                  <button
+                    key={option}
+                    className={`stat-option ${option.toLowerCase()}`}
+                    onClick={() => handleOptionClick(stat, option)}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-        )}
+        ))}
       </div>
     </div>
   );
