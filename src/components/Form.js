@@ -2,10 +2,35 @@ import React, { useState } from 'react';
 
 const Form = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    category: 'general'
+    name: '',
+    level: '',
+    baseTemplate: 'general'
   });
+
+  const [levelError, setLevelError] = useState('');
+
+  const validateLevel = (level) => {
+    const trimmedLevel = level.trim();
+    const parsedLevel = parseInt(trimmedLevel, 10);
+    
+    if (trimmedLevel === '') {
+      setLevelError('Level is required');
+      return false;
+    }
+    
+    if (isNaN(parsedLevel) || !Number.isInteger(parsedLevel)) {
+      setLevelError('Level must be an integer');
+      return false;
+    }
+    
+    if (parsedLevel < -1 || parsedLevel > 24) {
+      setLevelError('Level must be between -1 and 24');
+      return false;
+    }
+    
+    setLevelError('');
+    return true;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,42 +38,53 @@ const Form = ({ onSubmit }) => {
       ...prevData,
       [name]: value
     }));
+
+    if (name === 'level') {
+      validateLevel(value);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    setFormData({ title: '', description: '', category: 'general' });
+    if (validateLevel(formData.level)) {
+      onSubmit({
+        ...formData,
+        level: parseInt(formData.level.trim(), 10)
+      });
+      setFormData({ name: '', level: '', baseTemplate: 'general' });
+      setLevelError('');
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        name="title"
-        value={formData.title}
+        name="name"
+        value={formData.name}
         onChange={handleChange}
-        placeholder="Title"
+        placeholder="Name"
         required
       />
       <input
         type="text"
-        name="description"
-        value={formData.description}
+        name="level"
+        value={formData.level}
         onChange={handleChange}
-        placeholder="Description"
+        placeholder="Level (-1 to 24)"
         required
       />
+      {levelError && <div className="error">{levelError}</div>}
       <select
-        name="category"
-        value={formData.category}
+        name="baseTemplate"
+        value={formData.baseTemplate}
         onChange={handleChange}
       >
         <option value="general">General</option>
         <option value="work">Work</option>
         <option value="personal">Personal</option>
       </select>
-      <button type="submit">Create</button>
+      <button type="submit" disabled={!!levelError}>Create</button>
     </form>
   );
 };

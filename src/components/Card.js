@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Card.css';
 
-const Card = ({ title, description, category }) => {
+const Card = ({ name, level, baseTemplate }) => {
   const statButtons = [
     'AC', 'Perception', 'HP', 'Fort', 'Ref', 'Will', 
-    'Attack', 'Damage', 'Save DC', 'AoE Damage'
+    'Attack', 'Attk Damage', 'Save DC', 'AoE Damage', 'AoE Radius'
   ];
 
   const [showOptions, setShowOptions] = useState({});
@@ -30,9 +30,9 @@ const Card = ({ title, description, category }) => {
 
   return (
     <div className="card">
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <span>{category}</span>
+      <h3>{name}</h3>
+      <p>{level}</p>
+      <span>{baseTemplate}</span>
       <div className="stat-buttons-container">
         {statButtons.map(stat => (
           <div key={stat} className="stat-button-container">

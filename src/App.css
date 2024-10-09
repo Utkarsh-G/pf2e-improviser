@@ -33,3 +33,9 @@ button:hover {
   /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
   gap: 20px;
 }
+
+.error {
+  color: #f44336;
+  font-size: 0.8em;
+  margin-top: 5px;
+}

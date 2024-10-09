@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.App {
+  background-color: #2d2d2d;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+input, select, textarea {
+  background-color: #3d3d3d;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+button {
+  background-color: #4a4a4a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #5a5a5a;
+}
