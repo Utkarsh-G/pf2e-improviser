@@ -34,14 +34,30 @@ const Card = ({ name, level, baseTemplate }) => {
     }));
   };
 
+  const [notification, setNotification] = useState(null);
+
+  const handleSmallButtonClick = (stat) => {
+    const randomRoll = Math.floor(Math.random() * 20) + 1; // Generate random number between 1 and 20
+    const statValue = selectedValues[stat] ? selectedValues[stat].value : 0;
+    const total = randomRoll + statValue;
+
+    const message = `${stat} Roll: ${randomRoll} + ${statValue} = ${total}`;
+    setNotification(message);
+
+    // Clear notification after 3 seconds
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+
   return (
     <div className="card">
       <h3>{name}</h3>
       <p>Level: {level}</p>
       <span>{baseTemplate}</span>
+      {notification && <div className="notification">{notification}</div>}
       <div className="stat-buttons-container">
-      {statButtons.map((stat, index) => (
-        <React.Fragment key={stat}>
+        {statButtons.map((stat, index) => (
+          <React.Fragment key={stat}>
           {index === 2 && (
             <input
               type="text"
@@ -53,17 +69,22 @@ const Card = ({ name, level, baseTemplate }) => {
             />
           )}
           <div className="stat-button-container">
-            <button
-              className="stat-button"
-              onClick={() => handleButtonClick(stat)}
-              data-selected={selectedValues[stat] ? selectedValues[stat].option.toLowerCase() : ''}
-            >
-              {selectedValues[stat] 
-                ? `${stat}: ${selectedValues[stat].value} (${selectedValues[stat].option}) ` 
-                : stat}
-            </button>
-            {['Perception', 'Fort', 'Ref', 'Will', 'Attack', 'Skill'].includes(stat) && (
-              <button className="small-action-button">+</button>
+          <button
+                className="stat-button"
+                onClick={() => handleButtonClick(stat)}
+                data-selected={selectedValues[stat] ? selectedValues[stat].option.toLowerCase() : ''}
+              >
+                {selectedValues[stat] 
+                  ? `${stat}: ${selectedValues[stat].value} (${selectedValues[stat].option}) ` 
+                  : stat}
+              </button>
+              {['Perception', 'Fort', 'Ref', 'Will', 'Attack', 'Skill'].includes(stat) && (
+                <button 
+                  className="small-action-button"
+                  onClick={() => handleSmallButtonClick(stat)}
+                >
+                  +
+                </button>
             )}
             {showOptions[stat] && (
               <div className="stat-options">
