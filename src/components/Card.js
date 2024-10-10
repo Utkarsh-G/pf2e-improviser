@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import statCalculations from '../utils/statCalculations.js';
 import './Card.css';
 
 const Card = ({ name, level, baseTemplate }) => {
@@ -18,9 +19,16 @@ const Card = ({ name, level, baseTemplate }) => {
   };
 
   const handleOptionClick = (stat, option) => {
+    console.log('Stat:', stat);
+    console.log('Option:', option);
+    console.log('statCalculations:', statCalculations);
+    console.log('statCalculations[stat]:', statCalculations[stat]);
+
+    const calculatedValue = statCalculations[stat] ? statCalculations[stat](level, option) : null;
+    console.log('Calculated Value:', calculatedValue);
     setSelectedValues(prev => ({
       ...prev,
-      [stat]: option
+      [stat]: { option, value: calculatedValue }
     }));
     setShowOptions(prev => ({
       ...prev,
@@ -31,7 +39,7 @@ const Card = ({ name, level, baseTemplate }) => {
   return (
     <div className="card">
       <h3>{name}</h3>
-      <p>{level}</p>
+      <p>Level: {level}</p>
       <span>{baseTemplate}</span>
       <div className="stat-buttons-container">
         {statButtons.map(stat => (
@@ -39,9 +47,11 @@ const Card = ({ name, level, baseTemplate }) => {
             <button
               className="stat-button"
               onClick={() => handleButtonClick(stat)}
-              data-selected={selectedValues[stat] ? selectedValues[stat].toLowerCase() : ''}
+              data-selected={selectedValues[stat] ? selectedValues[stat].option.toLowerCase() : ''}
             >
-              {selectedValues[stat] ? `${stat}: ${selectedValues[stat]}` : stat}
+              {selectedValues[stat] 
+                ? `${stat}: ${selectedValues[stat].option} (${selectedValues[stat].value})` 
+                : stat}
             </button>
             {showOptions[stat] && (
               <div className="stat-options">
