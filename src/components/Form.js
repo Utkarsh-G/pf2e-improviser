@@ -65,7 +65,6 @@ const Form = ({ onSubmit }) => {
         value={formData.name}
         onChange={handleChange}
         placeholder="Name"
-        required
       />
       <input
         type="text"

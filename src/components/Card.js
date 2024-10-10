@@ -9,12 +9,14 @@ import StatButton from './StatButton.js';
 const calculateHalfLevel = (level) => {
   return Math.max(1, Math.ceil(level / 2));
 };
-const Card = ({ name, level, baseRoadmap }) => {
+const Card = ({ name , level, baseRoadmap }) => {
   const statButtons = [
     'AC', 'Perception', 'HP', 'Fort', 'Ref', 'Will', 
     'Attack', 'Attk Damage', 'Save DC', 'AoE Damage', 
     'AoE Radius', 'Skill'
   ];
+
+  const displayName = name.trim() === '' ? 'Gathofrax' : name.trim();
 
   const [selectedValues, setSelectedValues] = useState({});
   const [smallTextBox, setSmallTextBox] = useState('');
@@ -55,7 +57,7 @@ const Card = ({ name, level, baseRoadmap }) => {
 
   return (
     <div className="card">
-      <h3>{name}</h3>
+      <h3>{displayName}</h3>
       <p>Level: {level}</p>
       <span>{baseRoadmap}</span>
       {notification && <div className="notification">{notification}</div>}
