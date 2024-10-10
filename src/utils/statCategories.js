@@ -9,7 +9,7 @@ const statCategories = {
     'Attk Damage': ['low', 'moderate', 'high', 'extreme'],
     'Save DC': ['moderate', 'high', 'extreme'],
     'AoE Damage': ['limited', 'unlimited'],
-    'AoE Radius': ['moderate', 'high', 'extreme']
+    'AoE Radius': ['burst', 'cone', 'line']
   };
   
   export default statCategories;

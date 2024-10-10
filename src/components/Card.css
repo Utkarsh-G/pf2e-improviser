@@ -117,3 +117,15 @@
     background-color: #f44336;
     color: #ffffff;
   }
+
+  .small-text-box {
+    width: 60px;
+    margin-right: 10px;
+  }
+  
+  .large-text-box {
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    resize: vertical;
+  }

@@ -7,13 +7,7 @@ import creaturePerceptionMap from '../data/creature_perception.js';
 import creatureSkillsMap from '../data/creature_skills.js';
 import creatureSavesMap from '../data/creature_saves.js';
 import aoeDamage from '../data/creature_aoe_damage.js';
-
-
-// Add similar functions for other stats...
-
-// const genericCalculation = (level, option) => {
-//     return 
-//   };
+import aoeRadiusMap from '../data/creature_aoe_radius.js';
 
 const statCalculations = {
   AC: (level, option) => {return armorClass.get(level)[option]},
@@ -26,7 +20,7 @@ const statCalculations = {
   'Attk Damage': (level, option) => {return attackDamage.get(level)[option]},
   'Save DC': (level, option) => {return creatureDCMap.get(level)[option]},
   'AoE Damage': (level, option) => {return aoeDamage.get(level)[option]},
-  'AoE Radius': (level, option) => {return aoeDamage.get(level)[option]}
+  'AoE Radius': (level, option) => {return aoeRadiusMap.get(level)[option]}
 };
 
 export default statCalculations;

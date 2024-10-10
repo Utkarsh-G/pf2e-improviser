@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Card Creator</h1>
+      <h1>PF2e Improviser</h1>
       <Form onSubmit={handleSubmit} />
       <CardList cards={cards} />
     </div>
