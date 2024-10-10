@@ -7,8 +7,6 @@ function App() {
   const [cards, setCards] = useState([]);
 
   const handleSubmit = (formData) => {
-    console.log("Submitted data:");
-    console.log(formData);
     setCards(prevCards => [...prevCards, formData]);
   };
 
