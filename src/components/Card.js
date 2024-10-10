@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import statCalculations from '../utils/statCalculations.js';
+import statCategories from '../utils/statCategories.js';
 import './Card.css';
 
 const Card = ({ name, level, baseTemplate }) => {
@@ -49,7 +50,7 @@ const Card = ({ name, level, baseTemplate }) => {
             </button>
             {showOptions[stat] && (
               <div className="stat-options">
-                {['Low', 'Moderate', 'High', 'Extreme'].map((option) => (
+                {statCategories[stat].map((option) => (
                   <button
                     key={option}
                     className={`stat-option ${option.toLowerCase()}`}

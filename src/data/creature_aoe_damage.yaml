@@ -1,0 +1,79 @@
+aoe_damage:
+  - level: -1
+    unlimited: 2
+    limited: 4
+  - level: 0
+    unlimited: 4
+    limited: 6
+  - level: 1
+    unlimited: 5
+    limited: 7
+  - level: 2
+    unlimited: 7
+    limited: 11
+  - level: 3
+    unlimited: 9
+    limited: 14
+  - level: 4
+    unlimited: 11
+    limited: 18
+  - level: 5
+    unlimited: 12
+    limited: 21
+  - level: 6
+    unlimited: 14
+    limited: 25
+  - level: 7
+    unlimited: 15
+    limited: 28
+  - level: 8
+    unlimited: 17
+    limited: 32
+  - level: 9
+    unlimited: 18
+    limited: 35
+  - level: 10
+    unlimited: 20
+    limited: 39
+  - level: 11
+    unlimited: 21
+    limited: 42
+  - level: 12
+    unlimited: 23
+    limited: 46
+  - level: 13
+    unlimited: 24
+    limited: 49
+  - level: 14
+    unlimited: 26
+    limited: 53
+  - level: 15
+    unlimited: 27
+    limited: 56
+  - level: 16
+    unlimited: 28
+    limited: 60
+  - level: 17
+    unlimited: 29
+    limited: 63
+  - level: 18
+    unlimited: 30
+    limited: 67
+  - level: 19
+    unlimited: 32
+    limited: 70
+  - level: 20
+    unlimited: 33
+    limited: 74
+  - level: 21
+    unlimited: 35
+    limited: 77
+  - level: 22
+    unlimited: 36
+    limited: 81
+  - level: 23
+    unlimited: 38
+    limited: 84
+  - level: 24
+    unlimited: 39
+    limited: 88
