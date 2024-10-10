@@ -6,7 +6,8 @@ import './Card.css';
 const Card = ({ name, level, baseTemplate }) => {
   const statButtons = [
     'AC', 'Perception', 'HP', 'Fort', 'Ref', 'Will', 
-    'Attack', 'Attk Damage', 'Save DC', 'AoE Damage', 'AoE Radius'
+    'Attack', 'Attk Damage', 'Save DC', 'AoE Damage', 
+    'AoE Radius', 'Skill'
   ];
 
   const [showOptions, setShowOptions] = useState({});
