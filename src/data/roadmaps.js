@@ -1,11 +1,23 @@
 const roadmaps = {
-    "No Roadmap": {},
+    "No Roadmap": {
+        AC: "high",
+        Fort: "moderate",
+        Ref: "moderate",
+        Will: "moderate",
+        Skill: "high",
+        Perception: "moderate",
+        HP: "high",
+        "Attk Damage": "moderate",
+        "Save DC": "high",
+        Attack: "moderate",
+    },
     "Brute": {
       AC: "low",
       Perception: "low",
       HP: "high",
       Ref: "low",
       Will: "low",
+      Fort: "high",
       Attack: "moderate",
       "Attk Damage": "extreme"
     },
@@ -28,7 +40,8 @@ const roadmaps = {
       "Attk Damage": "moderate",
       HP: "moderate",
       AC: "moderate",
-      Fort: "low"
+      Fort: "low",
+      Will: "low"
     },
     "Sniper": {
       Perception: "high",
