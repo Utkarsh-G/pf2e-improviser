@@ -19,13 +19,7 @@ const Card = ({ name, level, baseTemplate }) => {
   };
 
   const handleOptionClick = (stat, option) => {
-    console.log('Stat:', stat);
-    console.log('Option:', option);
-    console.log('statCalculations:', statCalculations);
-    console.log('statCalculations[stat]:', statCalculations[stat]);
-
     const calculatedValue = statCalculations[stat] ? statCalculations[stat](level, option) : null;
-    console.log('Calculated Value:', calculatedValue);
     setSelectedValues(prev => ({
       ...prev,
       [stat]: { option, value: calculatedValue }

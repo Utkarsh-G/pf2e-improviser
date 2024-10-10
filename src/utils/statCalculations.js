@@ -1,9 +1,16 @@
 // import creatureAcData from '../data/creature_ac.yaml';
 
 const calculateAC = (level, option) => {
-    const baseValue = level + 10;
-    const modifiers = { low: -2, moderate: 0, high: 2, extreme: 4 };
-    return baseValue + modifiers[option.toLowerCase()];
+    const levelOneModerate = 15;
+    const acModerate = level > 0 ? levelOneModerate + level + Math.floor(level/2) - 1 : levelOneModerate + level;
+
+    const modifiers = { 
+      low: acModerate - 2, 
+      moderate: acModerate, 
+      high: acModerate + 1, 
+      extreme: acModerate + 4 
+    };
+    return modifiers[option.toLowerCase()];
 };
 
 const calculatePerception = (level, option) => {
