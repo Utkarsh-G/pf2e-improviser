@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import statCalculations from '../utils/statCalculations.js';
 import statCategories from '../utils/statCategories.js';
 import roadmaps from '../data/roadmaps.js';
+import d20Icon from '../images/d20.png';  // Import the d20 icon
 import './Card.css';
 
 const calculateHalfLevel = (level) => {
@@ -106,7 +107,7 @@ const Card = ({ name, level, baseRoadmap }) => {
                   className="small-action-button"
                   onClick={() => handleSmallButtonClick(stat)}
                 >
-                  +
+                  <img src={d20Icon} alt="d20" className="d20-icon" />
                 </button>
             )}
             {showOptions[stat] && (
