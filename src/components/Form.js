@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import roadmaps from '../data/roadmaps.js';
 
 const Form = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     name: '',
     level: '',
-    baseTemplate: 'general'
+    baseRoadmap: 'No Roadmap'
   });
 
   const [levelError, setLevelError] = useState('');
@@ -51,7 +52,7 @@ const Form = ({ onSubmit }) => {
         ...formData,
         level: parseInt(formData.level.trim(), 10)
       });
-      setFormData({ name: '', level: '', baseTemplate: 'general' });
+      setFormData({ name: '', level: '', baseRoadmap: 'No Roadmap' });
       setLevelError('');
     }
   };
@@ -76,13 +77,13 @@ const Form = ({ onSubmit }) => {
       />
       {levelError && <div className="error">{levelError}</div>}
       <select
-        name="baseTemplate"
-        value={formData.baseTemplate}
+        name="baseRoadmap"
+        value={formData.baseRoadmap}
         onChange={handleChange}
       >
-        <option value="general">General</option>
-        <option value="work">Work</option>
-        <option value="personal">Personal</option>
+        {Object.keys(roadmaps).map(roadmap => (
+          <option key={roadmap} value={roadmap}>{roadmap}</option>
+        ))}
       </select>
       <button type="submit" disabled={!!levelError}>Create</button>
     </form>

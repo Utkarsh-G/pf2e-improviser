@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import statCalculations from '../utils/statCalculations.js';
 import statCategories from '../utils/statCategories.js';
+import roadmaps from '../data/roadmaps.js';
 import './Card.css';
 
 const calculateHalfLevel = (level) => {
   return Math.max(1, Math.ceil(level / 2));
 };
 
-const Card = ({ name, level, baseTemplate }) => {
+const Card = ({ name, level, baseRoadmap }) => {
   const statButtons = [
     'AC', 'Perception', 'HP', 'Fort', 'Ref', 'Will', 
     'Attack', 'Attk Damage', 'Save DC', 'AoE Damage', 
@@ -18,6 +19,20 @@ const Card = ({ name, level, baseTemplate }) => {
   const [selectedValues, setSelectedValues] = useState({});
   const [smallTextBox, setSmallTextBox] = useState('');
   const [largeTextBox, setLargeTextBox] = useState('');
+
+  useEffect(() => {
+    const roadmap = roadmaps[baseRoadmap] || {};
+    const initialValues = {};
+    for (const [stat, option] of Object.entries(roadmap)) {
+      if (statCalculations[stat]) {
+        initialValues[stat] = {
+          option,
+          value: statCalculations[stat](level, option)
+        };
+      }
+    }
+    setSelectedValues(initialValues);
+  }, [baseRoadmap, level]);
 
   const halfLevel = calculateHalfLevel(level);
   const placeholderText = `Notes. Use for immunity, resistances (value: ${halfLevel}-${level}), weaknesses (value: ${halfLevel}-${level}), as well as special reactions, tracking skill training, etc.`;
@@ -61,7 +76,7 @@ const Card = ({ name, level, baseTemplate }) => {
     <div className="card">
       <h3>{name}</h3>
       <p>Level: {level}</p>
-      <span>{baseTemplate}</span>
+      <span>{baseRoadmap}</span>
       {notification && <div className="notification">{notification}</div>}
       <div className="stat-buttons-container">
         {statButtons.map((stat, index) => (
