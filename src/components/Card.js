@@ -3,6 +3,10 @@ import statCalculations from '../utils/statCalculations.js';
 import statCategories from '../utils/statCategories.js';
 import './Card.css';
 
+const calculateHalfLevel = (level) => {
+  return Math.max(1, Math.ceil(level / 2));
+};
+
 const Card = ({ name, level, baseTemplate }) => {
   const statButtons = [
     'AC', 'Perception', 'HP', 'Fort', 'Ref', 'Will', 
@@ -14,6 +18,10 @@ const Card = ({ name, level, baseTemplate }) => {
   const [selectedValues, setSelectedValues] = useState({});
   const [smallTextBox, setSmallTextBox] = useState('');
   const [largeTextBox, setLargeTextBox] = useState('');
+
+  const halfLevel = calculateHalfLevel(level);
+  const placeholderText = `Notes. Use for immunity, resistances (value: ${halfLevel}-${level}), weaknesses (value: ${halfLevel}-${level}), as well as special reactions, tracking skill training, etc.`;
+
 
   const handleButtonClick = (stat) => {
     setShowOptions(prev => ({
@@ -107,7 +115,7 @@ const Card = ({ name, level, baseTemplate }) => {
         value={largeTextBox}
         onChange={(e) => setLargeTextBox(e.target.value)}
         maxLength="1024"
-        placeholder="Notes. Use for immunity, resistances, weaknesses, as well as special reactions, tracking skill training, etc."
+        placeholder={placeholderText}
         className="large-text-box"
       />
     </div>
