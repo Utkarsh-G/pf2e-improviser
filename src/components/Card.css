@@ -26,6 +26,28 @@
     border-radius: 3px;
     font-size: 14px;
   }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .card-header h3 {
+    margin: 0;
+    flex-grow: 1;
+  }
+  
+  .card-header p {
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+  
+  .card-header span {
+    margin-left: 10px;
+    white-space: nowrap;
+  }
   
   .stat-buttons-container {
     display: flex;

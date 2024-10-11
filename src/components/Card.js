@@ -61,9 +61,11 @@ const Card = ({ name, level, baseRoadmap, type }) => {
 
   return (
     <div className="card">
-      <h3>{displayName}</h3>
-      <p>Level: {level}</p>
-      <span>{baseRoadmap}</span>
+      <div className="card-header">
+        <h3>{displayName}</h3>
+        <p>Level: {level}</p>
+        <span>{baseRoadmap}</span>
+      </div>
       {notification && <div className="notification">{notification}</div>}
       <div className="stat-buttons-container">
         {statButtons.map((stat, index) => (
