@@ -42,7 +42,7 @@ const Card = ({ name, level, baseRoadmap, type }) => {
   }, [baseRoadmap, level]);
 
   const halfLevel = calculateHalfLevel(level);
-  const placeholderText = `Notes. Use for immunity, resistances (value: ${halfLevel}-${level}), weaknesses (value: ${halfLevel}-${level}), as well as special reactions, tracking skill training, etc.`;
+  const placeholderText = `Notes. Add immunity, resistances (value: ${halfLevel}-${level}), weaknesses (value: ${halfLevel}-${level}). Track conditions. Improvise speeds, damage types, conditions inflicted, and unusual area shapes. Add special abilities, reactions, and skill actions.`;
 
   const handleRoll = (stat, statValue) => {
     const randomRoll = Math.floor(Math.random() * 20) + 1;
