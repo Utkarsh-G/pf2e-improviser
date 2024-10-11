@@ -39,7 +39,7 @@ const StatButton = ({ stat, level, initialValue, onRoll, onChange }) => {
         data-selected={selectedValue ? selectedValue.option.toLowerCase() : ''}
       >
         {selectedValue 
-          ? `${stat}:  ${statsThatRoll.includes(stat) ? '+' : ''}${selectedValue.value}` 
+          ? `${stat}:  ${statsThatRoll.includes(stat) ? '+' : ''}${selectedValue.value} (${selectedValue.option})` 
           : stat}
       </button>
       {statsThatRoll.includes(stat) && (
