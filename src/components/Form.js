@@ -62,13 +62,6 @@ const Form = ({ onSubmit }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        placeholder="Name"
-      />
-      <input
-        type="text"
         name="level"
         value={formData.level}
         onChange={handleChange}
@@ -76,6 +69,13 @@ const Form = ({ onSubmit }) => {
         required
       />
       {levelError && <div className="error">{levelError}</div>}
+      <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        placeholder="Name (Optional)"
+      />
       <select
         name="baseRoadmap"
         value={formData.baseRoadmap}
