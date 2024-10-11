@@ -12,12 +12,12 @@ const calculateHalfLevel = (level) => {
 const Card = ({ name, level, baseRoadmap, type }) => {
 
   const statButtons = type === 'creature' ? [
-    'HP', 'AC', 'Fort', 'Ref', 'Will', 
-    'Atk', 'Dmg', 'DC', 'AoE Dmg', 
-    'Area', 'Skill'
+    'HP', 'AC', 'Fort', 'Ref', 'Will',
+    'Perc', 'Skill', 'Atk', 'Dmg', 'DC',
+    'AoE Dmg', 'Area'
   ] : [
-    'Hazard HP', 'AC', 'Hardness', 'Fort', 'Ref', 'Atk', 
-    'Hazard Damage', 'DC', 'Skill'
+    'Hazard HP', 'AC', 'Hardness', 'Skill','Fort',
+    'Ref', 'Atk', 'Hazard Damage', 'DC'
   ];
 
   const displayName = name.trim() === '' ? 'Gathofrax' : name.trim();

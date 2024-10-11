@@ -29,7 +29,7 @@ const StatButton = ({ stat, level, initialValue, onRoll, onChange }) => {
     }
   };
 
-  const statsThatRoll = ['Fort', 'Ref', 'Will', 'Atk', 'Skill'];
+  const statsThatRoll = ['Perc', 'Fort', 'Ref', 'Will', 'Atk', 'Skill'];
 
   return (
     <div className="stat-button-container">
