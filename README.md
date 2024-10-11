@@ -14,6 +14,9 @@ Great for one-shots and non-recurring creatures and hazards. Not so great for re
 # How to use for devs
 It's made with create-react-app, so you can run `npm install` and then `npm start` to run it locally.
 
+# Colour Blind Mode
+There's a branch which adds text to show how severe a stat is. It's there for people with colour blindness, or those who don't find the colour coding to be intuitive.
+
 # Dev status
 It's uncertain if I'll continue to work on this. It's at a stage where I can use it for my games, so there's no pressing need for me to improve it. But if there's enough interest, I might add some more features.
 
