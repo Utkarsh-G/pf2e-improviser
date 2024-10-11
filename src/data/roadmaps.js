@@ -10,6 +10,9 @@ const roadmaps = {
         "Attk Damage": "moderate",
         "Save DC": "high",
         Attack: "moderate",
+        "Hazard Damage": "extreme",
+        "Hazard HP": "moderate",
+        Hardness: "moderate",
     },
     "Brute": {
       AC: "low",
@@ -62,6 +65,28 @@ const roadmaps = {
       Ref: "low",
       Perception: "moderate",
       HP: "moderate"
+    },
+    "Simple Hazard": {
+      AC: "high",
+      'Hazard HP': "moderate",
+      Hardness: "moderate",
+      "Save DC": "extreme",
+      Skill: "extreme",
+      Attack: "extreme",
+      "Hazard Damage": "extreme",
+      Fort: "high",
+      Ref: "high"
+    },
+    "Complex Hazard": {
+      AC: "high",
+      'Hazard HP': "moderate",
+      Hardness: "moderate",
+      "Save DC": "high",
+      Skill: "high",
+      Attack: "high",
+      "Hazard Damage": "high",
+      Fort: "high",
+      Ref: "high"
     }
   };
   

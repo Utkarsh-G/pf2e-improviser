@@ -1,0 +1,30 @@
+const hazardHPMap = new Map([
+    [-1, { moderate: 12 }],
+    [0, { moderate: 16 }],
+    [1, { moderate: 24 }],
+    [2, { moderate: 32 }],
+    [3, { moderate: 44 }],
+    [4, { moderate: 48 }],
+    [5, { moderate: 52 }],
+    [6, { moderate: 56 }],
+    [7, { moderate: 60 }],
+    [8, { moderate: 64 }],
+    [9, { moderate: 68 }],
+    [10, { moderate: 72 }],
+    [11, { moderate: 80 }],
+    [12, { moderate: 84 }],
+    [13, { moderate: 88 }],
+    [14, { moderate: 92 }],
+    [15, { moderate: 96 }],
+    [16, { moderate: 104 }],
+    [17, { moderate: 112 }],
+    [18, { moderate: 120 }],
+    [19, { moderate: 128 }],
+    [20, { moderate: 136 }],
+    [21, { moderate: 148 }],
+    [22, { moderate: 160 }],
+    [23, { moderate: 172 }],
+    [24, { moderate: 184 }]
+  ]);
+  
+  export default hazardHPMap;

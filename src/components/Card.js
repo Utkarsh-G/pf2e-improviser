@@ -9,11 +9,15 @@ import StatButton from './StatButton.js';
 const calculateHalfLevel = (level) => {
   return Math.max(1, Math.ceil(level / 2));
 };
-const Card = ({ name , level, baseRoadmap }) => {
-  const statButtons = [
+const Card = ({ name, level, baseRoadmap, type }) => {
+
+  const statButtons = type === 'creature' ? [
     'AC', 'Perception', 'HP', 'Fort', 'Ref', 'Will', 
     'Attack', 'Attk Damage', 'Save DC', 'AoE Damage', 
     'AoE Radius', 'Skill'
+  ] : [
+    'AC', 'Hardness', 'Hazard HP', 'Fort', 'Ref', 'Attack', 
+    'Hazard Damage', 'Save DC', 'Skill'
   ];
 
   const displayName = name.trim() === '' ? 'Gathofrax' : name.trim();

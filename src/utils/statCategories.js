@@ -10,7 +10,10 @@ const statCategories = {
     'Save DC': ['moderate', 'high', 'extreme'],
     'AoE Damage': ['limited', 'unlimited'],
     'AoE Radius': ['burst', 'cone', 'line'],
-    Skill: ['low', 'moderate', 'high', 'extreme']
+    Skill: ['low', 'moderate', 'high', 'extreme'],
+    Hardness: ['moderate'],
+    'Hazard HP': ['moderate'],
+    'Hazard Damage': ['high', 'extreme'],
   };
   
   export default statCategories;

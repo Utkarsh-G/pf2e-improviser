@@ -50,7 +50,8 @@ const Form = ({ onSubmit }) => {
     if (validateLevel(formData.level)) {
       onSubmit({
         ...formData,
-        level: parseInt(formData.level.trim(), 10)
+        level: parseInt(formData.level.trim(), 10),
+        type: e.nativeEvent.submitter.name === 'create-creature' ? 'creature' : 'hazard'
       });
       setFormData({ name: '', level: '', baseRoadmap: 'No Roadmap' });
       setLevelError('');
@@ -84,7 +85,8 @@ const Form = ({ onSubmit }) => {
           <option key={roadmap} value={roadmap}>{roadmap}</option>
         ))}
       </select>
-      <button type="submit" disabled={!!levelError}>Create</button>
+      <button type="submit" name="create-creature" disabled={!!levelError}>Create Creature</button>
+      <button type="submit" name="create-hazard" disabled={!!levelError}>Create Hazard</button>
     </form>
   );
 };
