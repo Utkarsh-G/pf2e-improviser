@@ -85,8 +85,10 @@ const Form = ({ onSubmit }) => {
           <option key={roadmap} value={roadmap}>{roadmap}</option>
         ))}
       </select>
-      <button type="submit" name="create-creature" disabled={!!levelError}>Create Creature</button>
-      <button type="submit" name="create-hazard" disabled={!!levelError}>Create Hazard</button>
+      <div className="button-container">
+        <button type="submit" name="create-creature" disabled={!!levelError}>Create Creature</button>
+        <button type="submit" name="create-hazard" disabled={!!levelError}>Create Hazard</button>
+      </div>    
     </form>
   );
 };

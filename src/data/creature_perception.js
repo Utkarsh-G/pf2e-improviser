@@ -1,4 +1,4 @@
-const creaturePerceptionMap = new Map([
+const creaturePercMap = new Map([
     [-1, { terrible: 0, low: 2, moderate: 5, high: 8, extreme: 9 }],
     [0, { terrible: 1, low: 3, moderate: 6, high: 9, extreme: 10 }],
     [1, { terrible: 2, low: 4, moderate: 7, high: 10, extreme: 11 }],
@@ -27,4 +27,4 @@ const creaturePerceptionMap = new Map([
     [24, { terrible: 32, low: 36, moderate: 38, high: 42, extreme: 46 }],
   ]);
   
-  export default creaturePerceptionMap;
+  export default creaturePercMap;

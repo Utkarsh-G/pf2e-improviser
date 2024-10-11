@@ -12,12 +12,12 @@ const calculateHalfLevel = (level) => {
 const Card = ({ name, level, baseRoadmap, type }) => {
 
   const statButtons = type === 'creature' ? [
-    'AC', 'Perception', 'HP', 'Fort', 'Ref', 'Will', 
-    'Attack', 'Attk Damage', 'Save DC', 'AoE Damage', 
-    'AoE Radius', 'Skill'
+    'HP', 'AC', 'Fort', 'Ref', 'Will', 
+    'Atk', 'Dmg', 'DC', 'AoE Dmg', 
+    'Area', 'Skill'
   ] : [
-    'AC', 'Hardness', 'Hazard HP', 'Fort', 'Ref', 'Attack', 
-    'Hazard Damage', 'Save DC', 'Skill'
+    'Hazard HP', 'AC', 'Hardness', 'Fort', 'Ref', 'Atk', 
+    'Hazard Damage', 'DC', 'Skill'
   ];
 
   const displayName = name.trim() === '' ? 'Gathofrax' : name.trim();
@@ -70,7 +70,7 @@ const Card = ({ name, level, baseRoadmap, type }) => {
       <div className="stat-buttons-container">
         {statButtons.map((stat, index) => (
           <React.Fragment key={stat}>
-            {index === 2 && (
+            {index === 0 && (
               <input
                 type="text"
                 value={smallTextBox}
