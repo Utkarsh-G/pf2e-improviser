@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pf2e-improviser/static/css/main.2e727e11.css",
-    "main.js": "/pf2e-improviser/static/js/main.82a1c521.js",
+    "main.js": "/pf2e-improviser/static/js/main.6f5473e7.js",
     "static/js/453.91fd5d1a.chunk.js": "/pf2e-improviser/static/js/453.91fd5d1a.chunk.js",
     "index.html": "/pf2e-improviser/index.html",
     "main.2e727e11.css.map": "/pf2e-improviser/static/css/main.2e727e11.css.map",
-    "main.82a1c521.js.map": "/pf2e-improviser/static/js/main.82a1c521.js.map",
+    "main.6f5473e7.js.map": "/pf2e-improviser/static/js/main.6f5473e7.js.map",
     "453.91fd5d1a.chunk.js.map": "/pf2e-improviser/static/js/453.91fd5d1a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2e727e11.css",
-    "static/js/main.82a1c521.js"
+    "static/js/main.6f5473e7.js"
   ]
 }
