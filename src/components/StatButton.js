@@ -29,7 +29,7 @@ const StatButton = ({ stat, level, initialValue, onRoll, onChange }) => {
     }
   };
 
-  const statsThatRoll = ['Perception', 'Fort', 'Ref', 'Will', 'Attack', 'Skill'];
+  const statsThatRoll = ['Fort', 'Ref', 'Will', 'Atk', 'Skill'];
 
   return (
     <div className="stat-button-container">
@@ -39,7 +39,7 @@ const StatButton = ({ stat, level, initialValue, onRoll, onChange }) => {
         data-selected={selectedValue ? selectedValue.option.toLowerCase() : ''}
       >
         {selectedValue 
-          ? `${stat}: ${statsThatRoll.includes(stat) ? '+' : ''}${selectedValue.value} (${selectedValue.option}) ` 
+          ? `${stat}:  ${statsThatRoll.includes(stat) ? '+' : ''}${selectedValue.value}` 
           : stat}
       </button>
       {statsThatRoll.includes(stat) && (

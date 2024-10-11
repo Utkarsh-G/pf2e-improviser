@@ -1,4 +1,4 @@
-const creatureAttackMap = new Map([
+const creatureAtkMap = new Map([
     [-1, { low: 4, moderate: 6, high: 8, extreme: 10 }],
     [0, { low: 4, moderate: 6, high: 8, extreme: 10 }],
     [1, { low: 5, moderate: 7, high: 9, extreme: 11 }],
@@ -27,4 +27,4 @@ const creatureAttackMap = new Map([
     [24, { low: 36, moderate: 42, high: 44, extreme: 46 }],
   ]);
   
-  export default creatureAttackMap;
+  export default creatureAtkMap;
