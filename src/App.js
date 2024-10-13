@@ -29,7 +29,7 @@ function App() {
         <button className="quick-reference-btn" onClick={toggleModal}>Quick Reference</button>
         <button className="quick-reference-btn" onClick={toggleSpicyModal}>Spice it up!</button>
       </div>
-      <CardList cards={cards} />
+      <CardList cards={cards.slice().reverse()} />
       {isModalOpen && <QuickReferenceModal onClose={toggleModal} />}
       {isSpicyModalOpen && <SpicyModal onClose={toggleSpicyModal} />}
     </div>
