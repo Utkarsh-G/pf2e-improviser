@@ -68,8 +68,59 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    flex-wrap: wrap; /* Allow tables to wrap to the next line */
   }
   
   .table-container .quick-reference-table {
-    flex: 1;
+    flex: 1 1 300px; /* Adjust the 300px value as needed */
+  }
+
+/* Styles for treasure tables */
+.treasure-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .treasure-table th,
+  .treasure-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+  }
+  
+  /* Hide treasure shortened table by default */
+  .treasure-shortened {
+    display: none;
+  }
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) { /* Adjust this breakpoint as needed */
+    .table-container {
+      flex-direction: column;
+    }
+  
+    .table-container .quick-reference-table {
+      flex: 1 1 100%;
+      margin-bottom: 20px; /* Add some space between stacked tables */
+    }
+  
+    .modal-content {
+      max-width: 95%; /* Increase the width of the modal on small screens */
+      padding: 10px;
+      padding-top: 40px;
+    }
+  
+    .back-button {
+      top: 5vh;
+      left: 5vw;
+    }
+
+      /* Hide full treasure table and show shortened version on mobile */
+  .treasure-full {
+    display: none;
+  }
+
+  .treasure-shortened {
+    display: table;
+  }
   }

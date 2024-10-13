@@ -4,7 +4,7 @@ import dcByLevel from '../data/dc_by_level';
 import creatureXP from '../data/creature_xp';
 import encounterXP from '../data/encounter_xp';
 import treasureByEncounter from '../data/treasure_by_encounter';
-
+import treasureShortened from '../data/treasure_shortened';
 const QuickReferenceModal = ({ onClose }) => {
   return (
     <div className="modal-overlay">
@@ -89,28 +89,45 @@ const QuickReferenceModal = ({ onClose }) => {
             </table>
         </div>
 
-        <table className="quick-reference-table spaced-columns">
+        <table className="quick-reference-table spaced-columns treasure-table treasure-full">
                 <thead>
                 <tr>
                     <th>Level</th>
                     <th>Total Treasure per Level for Party of 4</th>
                     <th>Low</th>
                     <th>Moderate</th>
-                    <th>High</th>
+                    <th>Severe</th>
                     <th>Extreme</th>
                     <th>Extra per Additional Player</th>
                 </tr>
                 </thead>
                 <tbody>
                 {Array.from(treasureByEncounter.entries(), ([level, data]) => (
-                    <tr key={level}>
-                        <td>{level}</td>
-                        <td>{data.total}</td>
-                        <td>{data.low}</td>
-                        <td>{data.moderate}</td>
-                        <td>{data.high}</td>
-                        <td>{data.extreme}</td>
-                        <td>{data.extra}</td>
+                    <tr key={level} className={level % 5 === 0 ? "highlight-row" : ""}>
+                        <td data-label="Level">{level}</td>
+                        <td data-label="Total">{data.total}</td>
+                        <td data-label="Low">{data.low}</td>
+                        <td data-label="Moderate">{data.moderate}</td>
+                        <td data-label="Severe">{data.severe}</td>
+                        <td data-label="Extreme">{data.extreme}</td>
+                        <td data-label="Extra">{data.extra}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+
+            <table className="quick-reference-table spaced-columns treasure-table treasure-shortened">
+                <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Moderate / Severe</th>
+                </tr>
+                </thead>
+                <tbody>
+                {Array.from(treasureShortened.entries(), ([level, data]) => (
+                    <tr key={level} className={level % 5 === 0 ? "highlight-row" : ""}>
+                        <td data-label="Level">{level}</td>
+                        <td data-label="Moderate / Severe">{data}</td>
                     </tr>
                 ))}
                 </tbody>
