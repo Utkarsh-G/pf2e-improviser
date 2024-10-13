@@ -45,13 +45,32 @@ const Form = ({ onSubmit }) => {
     }
   };
 
+  const creaturePrefix = ['Tepid', 'Slithering', 'Drowsy', 'Envious', 'Joyful', 'Daring', 'Nasty', 'Wrathful', 'Morose', 'Serene']
+  const creatureSensory = ['Screeching', 'Smelly', 'Slobbering', 'Silent', 'Growling', 'Howling', 'Cackling', 'Furry', 'Feathered', 'Scaly']
+
+  const hazardPrefix = ['Deadly', 'Toxic', 'Acidic', 'Electric', 'Explosive', 'Corrosive', 'Vicious', 'Piercing', 'Freezing', 'Burning']
+  const hazardMaterial = ['Metallic', 'Crystalline', 'Wooden', 'Stony', 'Glassy', 'Thorny', 'Gelatinous', 'Fleshy', 'Eldritch', 'Wiry']
+  
+  const generateDisplayName = (type) => {
+    const randomIndex1 = Math.floor(Math.random() * 10);
+    const randomIndex2 = Math.floor(Math.random() * 10);
+    if (type === 'creature') {
+      return `The ${creaturePrefix[randomIndex1]} ${creatureSensory[randomIndex2]} One`
+    } else if (type === 'hazard') {
+      return `A ${hazardPrefix[randomIndex1]} ${hazardMaterial[randomIndex2]} Obstacle`
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateLevel(formData.level)) {
+      const type = e.nativeEvent.submitter.name === 'create-creature' ? 'creature' : 'hazard';
+      const displayName = generateDisplayName(type);
       onSubmit({
         ...formData,
         level: parseInt(formData.level.trim(), 10),
-        type: e.nativeEvent.submitter.name === 'create-creature' ? 'creature' : 'hazard'
+        type: type,
+        name: formData.name.trim() === '' ? displayName : formData.name.trim()
       });
       setFormData({ name: '', level: '', baseRoadmap: 'No Roadmap' });
       setLevelError('');
