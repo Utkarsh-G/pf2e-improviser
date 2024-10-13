@@ -10,7 +10,7 @@ const QuickReferenceModal = ({ onClose }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="back-button" onClick={onClose}>Back</button>
-        <h2>Quick Reference</h2>
+        <h2>DC By Level</h2>
         {/* Add your quick reference content here */}
         <div className="table-container">
             <table className="quick-reference-table spaced-columns">
@@ -51,6 +51,8 @@ const QuickReferenceModal = ({ onClose }) => {
             </table>
         </div>
 
+        <h2>XP Budget by Encounter Severity</h2>
+
         <div className="table-container">
             <table className="quick-reference-table spaced-columns">
                 <thead>
@@ -88,6 +90,8 @@ const QuickReferenceModal = ({ onClose }) => {
                 </tbody>
             </table>
         </div>
+
+        <h2>Treasure Per Encounter by Level and Encounter Severity</h2>
 
         <table className="quick-reference-table spaced-columns treasure-table treasure-full">
                 <thead>

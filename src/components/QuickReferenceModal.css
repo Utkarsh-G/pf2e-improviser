@@ -53,15 +53,33 @@
     background-color: #4a4a4a;
   }
 
-.quick-reference-table.spaced-columns th,
-.quick-reference-table.spaced-columns td {
-  padding: 8px 16px;
-  text-align: center; /*I don't want this for other columns*/
-}
+  .quick-reference-table {
+    border: 1px solid #444;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  /* .table-heading {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+  } */
+
+  .quick-reference-table.spaced-columns th,
+  .quick-reference-table.spaced-columns td {
+    padding: 8px 16px;
+    text-align: left; /* Changed from center to left */
+    border-bottom: 1px solid #444;
+  }
 
 .quick-reference-table.spaced-columns th:not(:last-child),
 .quick-reference-table.spaced-columns td:not(:last-child) {
   padding-right: 32px;
+  border-right: 1px solid #444;
 }
 
 .table-container {
