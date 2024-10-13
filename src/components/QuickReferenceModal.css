@@ -54,9 +54,20 @@
 .quick-reference-table.spaced-columns th,
 .quick-reference-table.spaced-columns td {
   padding: 8px 16px;
+  text-align: center; /*I don't want this for other columns*/
 }
 
 .quick-reference-table.spaced-columns th:not(:last-child),
 .quick-reference-table.spaced-columns td:not(:last-child) {
   padding-right: 32px;
 }
+
+.table-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .table-container .quick-reference-table {
+    flex: 1;
+  }

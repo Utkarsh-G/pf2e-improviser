@@ -1,6 +1,10 @@
 import React from 'react';
 import './QuickReferenceModal.css';
 import dcByLevel from '../data/dc_by_level';
+import creatureXP from '../data/creature_xp';
+import encounterXP from '../data/encounter_xp';
+import treasureByEncounter from '../data/treasure_by_encounter';
+
 const QuickReferenceModal = ({ onClose }) => {
   return (
     <div className="modal-overlay">
@@ -8,22 +12,109 @@ const QuickReferenceModal = ({ onClose }) => {
         <button className="back-button" onClick={onClose}>Back</button>
         <h2>Quick Reference</h2>
         {/* Add your quick reference content here */}
+        <div className="table-container">
+            <table className="quick-reference-table spaced-columns">
+                <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>DC</th>
+                </tr>
+                </thead>
+                <tbody>
+                {Array.from({ length: 13 }, (_, index) => (
+                    <tr key={index} className={index % 5 === 0 ? "highlight-row" : ""}>
+                    <td>{index}</td>
+                    <td>{dcByLevel.get(index)}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+            
+            <table className="quick-reference-table spaced-columns">
+                <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>DC</th>
+                </tr>
+                </thead>
+                <tbody>
+                {Array.from({ length: 13 }, (_, index) => {
+                    const level = index + 13;
+                    return (
+                        <tr key={level} className={level % 5 === 0 ? "highlight-row" : ""}>
+                            <td>{level}</td>
+                            <td>{dcByLevel.get(level)}</td>
+                        </tr>
+                    );
+                })}
+                </tbody>
+            </table>
+        </div>
+
+        <div className="table-container">
+            <table className="quick-reference-table spaced-columns">
+                <thead>
+                <tr>
+                    <th>Severity</th>
+                    <th>XP Budget</th>
+                    <th>Adjustment</th>
+                </tr>
+                </thead>
+                <tbody>
+                {Array.from(encounterXP.entries(), ([severity, data]) => (
+                    <tr key={severity}>
+                        <td>{severity}</td>
+                        <td>{data.budget}</td>
+                        <td>{data.adjustment}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+            
+            <table className="quick-reference-table spaced-columns">
+                <thead>
+                <tr>
+                    <th>Creature Level</th>
+                    <th>XP</th>
+                </tr>
+                </thead>
+                <tbody>
+                {Array.from(creatureXP.entries(), ([level, xp]) => (
+                    <tr key={level}>
+                        <td>{level}</td>
+                        <td>{xp}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+
         <table className="quick-reference-table spaced-columns">
-          <thead>
-            <tr>
-              <th>Level</th>
-              <th>DC</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Array.from({ length: 25 }, (_, index) => (
-              <tr key={index} className={index % 5 === 0 ? "highlight-row" : ""}>
-                <td>{index}</td>
-                <td>{dcByLevel.get(index)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Total Treasure per Level for Party of 4</th>
+                    <th>Low</th>
+                    <th>Moderate</th>
+                    <th>High</th>
+                    <th>Extreme</th>
+                    <th>Extra per Additional Player</th>
+                </tr>
+                </thead>
+                <tbody>
+                {Array.from(treasureByEncounter.entries(), ([level, data]) => (
+                    <tr key={level}>
+                        <td>{level}</td>
+                        <td>{data.total}</td>
+                        <td>{data.low}</td>
+                        <td>{data.moderate}</td>
+                        <td>{data.high}</td>
+                        <td>{data.extreme}</td>
+                        <td>{data.extra}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
 
         <table className="quick-reference-table spaced-columns">
           <thead>
