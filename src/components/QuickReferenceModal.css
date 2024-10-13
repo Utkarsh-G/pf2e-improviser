@@ -46,3 +46,17 @@
   p {
     color: #e0e0e0;
   }
+
+  .highlight-row {
+    background-color: #4a4a4a;
+  }
+
+.quick-reference-table.spaced-columns th,
+.quick-reference-table.spaced-columns td {
+  padding: 8px 16px;
+}
+
+.quick-reference-table.spaced-columns th:not(:last-child),
+.quick-reference-table.spaced-columns td:not(:last-child) {
+  padding-right: 32px;
+}
