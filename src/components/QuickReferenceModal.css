@@ -60,19 +60,10 @@
     margin-bottom: 20px;
   }
 
-  /* .table-heading {
-    background-color: #3a3a3a;
-    color: #ffffff;
-    padding: 10px;
-    font-size: 1.1em;
-    font-weight: bold;
-    text-align: center;
-  } */
-
   .quick-reference-table.spaced-columns th,
   .quick-reference-table.spaced-columns td {
     padding: 8px 16px;
-    text-align: left; /* Changed from center to left */
+    text-align: left;
     border-bottom: 1px solid #444;
   }
 
@@ -86,11 +77,11 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap; /* Allow tables to wrap to the next line */
+    flex-wrap: wrap;
   }
   
   .table-container .quick-reference-table {
-    flex: 1 1 300px; /* Adjust the 300px value as needed */
+    flex: 1 1 300px;
   }
 
 /* Styles for treasure tables */
@@ -112,7 +103,7 @@
   }
 
 /* Media query for mobile devices */
-@media screen and (max-width: 768px) { /* Adjust this breakpoint as needed */
+@media screen and (max-width: 768px) {
     .table-container {
       flex-direction: column;
     }

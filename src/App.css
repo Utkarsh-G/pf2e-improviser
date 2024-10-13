@@ -28,7 +28,7 @@ button:hover {
 }
 
 .quick-reference-btn {
-  width: 100%;
+  width: calc(50% - 5px); /* Adjust width to fit two buttons side by side with a small gap */
   padding: 10px;
   font-size: 16px;
   margin-bottom: 20px;
@@ -36,6 +36,13 @@ button:hover {
   color: white;
   border: none;
   cursor: pointer;
+}
+
+.modal-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .card-list {
