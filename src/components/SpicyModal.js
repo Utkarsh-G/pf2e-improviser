@@ -43,7 +43,7 @@ const SpicyModal = ({ onClose }) => {
             </tr>
             <tr>
               <td>3</td>
-              <td>One or all PCs must move to a particular area.</td>
+              <td>Get one or all PCs to a particular area.</td>
             </tr>
             <tr>
               <td>4</td>
@@ -71,7 +71,7 @@ const SpicyModal = ({ onClose }) => {
             </tr>
             <tr>
               <td>10</td>
-              <td>Pick one of the above, and complete it within a given timeframe.</td>
+              <td>Do one of the above, and complete it within a given timeframe.</td>
             </tr>
           </tbody>
         </table>
