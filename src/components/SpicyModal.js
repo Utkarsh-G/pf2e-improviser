@@ -128,19 +128,19 @@ const SpicyModal = ({ onClose }) => {
           <tbody>
             <tr>
               <td>1</td>
-              <td>Blocking Terrain / Cover</td>
+              <td>Blocking terrain / Cover</td>
             </tr>
             <tr>
               <td>2</td>
-              <td>Hazardous Terrain with damage</td>
+              <td>Hazardous (damaging) terrain</td>
             </tr>
             <tr>
               <td>3</td>
-              <td>Difficult Terrain or Greater Difficult Terrain - Rubble, slope, tight passage, water, thicket etc.</td>
+              <td>Difficult or greater difficult terrain - Rubble, slope, tight passage, water, thicket etc.</td>
             </tr>
             <tr>
               <td>4</td>
-              <td>High Ground - raised platform, ledge, tree etc.</td>
+              <td>High ground - raised platform, ledge, tree etc.</td>
             </tr>
             <tr>
               <td>5</td>
@@ -207,7 +207,7 @@ const SpicyModal = ({ onClose }) => {
             <tr>
               <td>9</td>
               <td> Environment that can be changed by PCs - lever for floodgates, lever for a drawbridge etc.</td>
-              more        </tr>
+            </tr>
             <tr>
               <td>10</td>
               <td>The battle takes place inside or on top of a creature (bigger than 30ft on all sides).</td>
