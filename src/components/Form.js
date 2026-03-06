@@ -67,6 +67,7 @@ const Form = ({ onSubmit }) => {
       const type = e.nativeEvent.submitter.name === 'create-creature' ? 'creature' : 'hazard';
       const displayName = generateDisplayName(type);
       onSubmit({
+        id: crypto.randomUUID(),
         ...formData,
         level: parseInt(formData.level.trim(), 10),
         type: type,
